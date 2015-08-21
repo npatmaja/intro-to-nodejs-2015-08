@@ -419,6 +419,19 @@ module.exports = function(dir, cb) {
 ---
 class: dark-bg
 
+## Async
+```js
+module.exports = function(dir, cb) {
+  async.waterfall([
+    getFiles(dir),
+    getStats(dir),
+    getLargestFile()
+  ], cb);
+};
+```
+---
+class: dark-bg
+
 ## Promise
 
 ```js
@@ -450,6 +463,17 @@ that the function may eventually provide.
 
 A promise can also be used as a proxy
 for a remote object to overcome latency.
+---
+class: dark-bg
+
+## Promise
+```js
+module.exports = function(dir) {
+  return fsReaddir(dir)
+    .then(getStats(dir))
+    .then(getLargestFile());
+}
+```
 
 ---
 class: dark-bg
@@ -677,6 +701,16 @@ class: dark-bg
 .center.v-center[
 # Thank You
 ]
+
+---
+class: dark-bg
+
+# Resource
+
+<i class="icon ion-ios-monitor color-light size-icon"></i> .icon-text.size-icon-sm[http://nauvalatmaja.com/intro-to-nodejs-2015-08/]
+
+<i class="icon ion-social-nodejs color-light size-icon"></i> .icon-text.size-icon-sm[https://github.com/npatmaja/nodejs-examples]
+
     </textarea>
     <script src="js/remark-latest.min.js">
     </script>
